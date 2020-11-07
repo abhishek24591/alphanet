@@ -6,7 +6,7 @@ import pages.HomePage;
 
 public class HomePageStepdef {
 
-	@Given("I launch flipkart")
+	@Given("I launch flipkart$")
 	public void iAmOnFlipKartHomePage() throws Exception{
 		new HomePage().basePageNavigation();
 	}
@@ -16,13 +16,20 @@ public class HomePageStepdef {
 		new HomePage().searchInSearchInputbox(nm);
 	}
 	
-	@And("I verify that I am on flipkart home page")
+	@And("I verify that I am on flipkart home page$")
 	public void iVerifyThatIAmOnFlipkartHomePage(){
 		new HomePage().verifyIAmOnFlipKartHomePage();
 	}
 	
-	@And("I login into application")
-	public void iLoginIntoApplication() throws Exception{
-		new HomePage().loginIntoApplication();
+	
+	
+	@And("^I select add to compare checkbox$")
+	public void iSelectAddToCompareCheckbox() throws Exception{
+		new HomePage().selectAddToCompareChkbox();
+	}
+	
+	@Given("^I verify count (\\d+) gets displayed for compare$")
+	public void i_verify_count_gets_displayed_for_compare(int arg1) throws Throwable {
+	    new HomePage().verifyCountOfOneInCompare();	
 	}
 }
