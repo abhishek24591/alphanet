@@ -25,5 +25,4 @@ public class HomePageStepdef {
 	public void i_select_under_section(String val1,String val2) throws Throwable {
 		new HomePage().selectItemUnderMens();
 	}
-	
 }

@@ -35,13 +35,13 @@ public class HomePage extends Base {
 	public void clickOnFirstWishListIcon() throws Exception{
 		Utility.waitForVisibilityOfElementLocated(xpathfile, "wishlist_first_icon");
 		Utility.moveToElementAndClick(driver, xpathfile, "wishlist_first_icon");
+		System.out.println("Clicked on first wishlist icon");
 	}
 	
 	@SuppressWarnings("deprecation")
 	public void verifyLoginPopupOpens() throws Exception{
 		Utility.waitForVisibilityOfElementLocated(xpathfile, "login_label");
 		Assert.assertTrue(Utility.isElementDisplayed(driver, xpathfile, "login_label"));
+		System.out.println("Login window displayed");
 	}
-   
-
 }
