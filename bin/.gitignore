@@ -1,0 +1,7 @@
+/config.properties
+/hooks/
+/object_repository.properties
+/pages/
+/stepDefinitions/
+/testRunner/
+/utils/

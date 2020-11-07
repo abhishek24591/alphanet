@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,13 +42,38 @@ public class Utility extends Base {
 		Thread.sleep(2000);
 		Actions act = new Actions(dr);
 		Action series = (Action) act.moveToElement(dr.findElement(By.xpath((String) getProperty(xpathFile, xpathKey))))
-				.sendKeys((String) getProperty(dataFile,dataToEnter)).build();
-		series.perform(); 
-//		dr.findElement(By.xpath((String)Utility.getProperty(xpathFile, xpathKey))).sendKeys((String) Utility.getProperty(dataFile, dataToEnter));
+				.sendKeys((String) getProperty(dataFile, dataToEnter)).build();
+		series.perform();
 	}
 
 	public static String getTextUsingXpath(WebDriver dr, String xpathFile, String xpathKey) throws Exception {
 		return dr.findElement(By.xpath((String) getProperty(xpathFile, xpathKey))).getText();
+	}
+
+	public static void typeUsingJavaScriptExecutor(WebDriver dr, String xpathFile, String xpathKey, String dataFile,
+			String dataToEnter) throws Exception {
+		WebElement ele = driver.findElement(By.xpath((String) Utility.getProperty(xpathFile, xpathKey)));
+		JavascriptExecutor myExecutor = ((JavascriptExecutor) driver);
+		String val = (String) Utility.getProperty(dataFile, dataToEnter);
+		myExecutor.executeScript("arguments[0].value=\"" + val + "\";", ele);
+	}
+	
+	public static void clickUsingJavaScriptExecutor(WebDriver dr, String xpathFile, String xpathKey) throws Exception {
+		WebElement ele = driver.findElement(By.xpath((String) Utility.getProperty(xpathFile, xpathKey)));
+		JavascriptExecutor myExecutor = ((JavascriptExecutor) driver);
+		myExecutor.executeScript("arguments[0].click",ele);
+	}
+	
+	public static void moveToElement(WebDriver dr, String xpathFile, String xpathKey) throws Exception {
+		WebElement ele = driver.findElement(By.xpath((String) Utility.getProperty(xpathFile, xpathKey)));
+		Actions a = new Actions(dr);
+		a.moveToElement(ele).perform();
+	}
+	
+	public static void moveToElementAndClick(WebDriver dr, String xpathFile, String xpathKey) throws Exception {
+		WebElement ele = driver.findElement(By.xpath((String) Utility.getProperty(xpathFile, xpathKey)));
+		Actions a = new Actions(dr);
+		a.moveToElement(ele).click().perform();
 	}
 
 }

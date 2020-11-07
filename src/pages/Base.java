@@ -10,8 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features={"Features"},glue={"stepDefinitions"})
+
 public class Base {
 
 	public static WebDriver driver;
@@ -26,7 +25,7 @@ public class Base {
 		String browserName = p.getProperty("browsername");
 		if (browserName.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
-					"F:\\OxygenWorkspace\\Alphanet\\Flipkart\\driver\\chromedriver.exe");
+					"F:\\OxygenWorkspace\\Alphanet\\Flipkart\\chromedriver\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		return driver;

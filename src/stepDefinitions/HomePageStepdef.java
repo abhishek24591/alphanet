@@ -6,19 +6,30 @@ import pages.HomePage;
 
 public class HomePageStepdef {
 
-	@Given("I launch flipkart$")
-	public void iAmOnFlipKartHomePage() throws Exception{
-		new HomePage().basePageNavigation();
-	}
 	
 	@And("^I search in search box$")
 	public void i_search_in_search_box() throws Exception {
 		new HomePage().searchInSearchInputbox();
 	}
 	
+	@And("I verify login popup opens")
+	public void iVerifyLoginPopUpOpens(){
+		
+	}
+	
+	@And("I click on wishlist icon of first tshirt")
+	public void i_click_on_wishlist_icon_of_first_tshirt() throws Exception{
+		new HomePage().clickOnFirstWishListIcon();
+	}
+	
 	@And("I verify that I am on flipkart home page$")
 	public void iVerifyThatIAmOnFlipkartHomePage() throws Exception{
 		new HomePage().verifyIAmOnFlipKartHomePage();
+	}
+	
+	@And("^I select \"([^\"]*)\" under \"([^\"]*)\" section$")
+	public void i_select_under_section(String val1,String val2) throws Throwable {
+		new HomePage().selectItemUnderMens();
 	}
 	
 	@And("^I select add to compare checkbox$")
