@@ -6,15 +6,9 @@ import pages.HomePage;
 
 public class HomePageStepdef {
 
-	
-	@And("^I search in search box$")
-	public void i_search_in_search_box() throws Exception {
-		new HomePage().searchInSearchInputbox();
-	}
-	
 	@And("I verify login popup opens")
-	public void iVerifyLoginPopUpOpens(){
-		
+	public void iVerifyLoginPopUpOpens() throws Exception{
+		new HomePage().verifyLoginPopupOpens();
 	}
 	
 	@And("I click on wishlist icon of first tshirt")
@@ -32,13 +26,4 @@ public class HomePageStepdef {
 		new HomePage().selectItemUnderMens();
 	}
 	
-	@And("^I select add to compare checkbox$")
-	public void iSelectAddToCompareCheckbox() throws Exception{
-		new HomePage().selectAddToCompareChkbox();
-	}
-	
-	@Given("^I verify count (\\d+) gets displayed for compare$")
-	public void i_verify_count_gets_displayed_for_compare(int arg1) throws Throwable {
-	    new HomePage().verifyCountOfOneInCompare();	
-	}
 }

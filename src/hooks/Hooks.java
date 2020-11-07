@@ -17,8 +17,8 @@ public class Hooks extends Base {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
-	/*@After
+	@After
 	public void tearDown(){
 		driver.quit();
-	}  */
+	}  
 }

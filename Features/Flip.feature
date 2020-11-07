@@ -5,10 +5,7 @@ Feature: Verify flipkart flow
     And I verify that I am on flipkart home page
     And I select "tshirt" under "Men" section
     And I click on wishlist icon of first tshirt
-    And  
-    #And I search in search box 
-    #And I select add to compare checkbox 
-    #And I verify count 1 gets displayed for compare
+    And I verify login popup opens  
     
    
 

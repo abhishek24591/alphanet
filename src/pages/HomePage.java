@@ -24,19 +24,6 @@ public class HomePage extends Base {
 		driver.findElement(By.xpath((String) Utility.getProperty(xpathfile, "searchInput_box"))).sendKeys(Keys.ENTER);
 	}
 	
-	public void selectAddToCompareChkbox() throws Exception{
-		boolean status = driver.findElement(By.xpath((String)Utility.getProperty(xpathfile, "addToCompareCheckbox"))).isSelected();
-		if(!status){
-			Utility.clickUsingXpath(driver, xpathfile, "addToCompareCheckbox");
-		}
-	}
-	
-	@SuppressWarnings("deprecation")
-	public void verifyCountOfOneInCompare() throws Exception{
-		Utility.waitForVisibilityOfElementLocated(xpathfile, "compare_Count_one");
-		Assert.assertTrue("Count 1 is not shown for compare", driver.findElement(By.xpath((String)Utility.getProperty(xpathfile, "compare_Count_one"))).isDisplayed());
-	}
-	
 	public void selectItemUnderMens() throws Exception{
 		Utility.waitForVisibilityOfElementLocated(xpathfile, "mens_label");
 		Utility.moveToElement(driver, xpathfile, "mens_label");
@@ -46,13 +33,14 @@ public class HomePage extends Base {
 	}
 	
 	public void clickOnFirstWishListIcon() throws Exception{
-		Utility.waitForVisibilityOfElementLocated(xpathfile, "login_label");
-		Utility.moveToElementAndClick(driver, xpathfile, "login_label");
+		Utility.waitForVisibilityOfElementLocated(xpathfile, "wishlist_first_icon");
+		Utility.moveToElementAndClick(driver, xpathfile, "wishlist_first_icon");
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void verifyLoginPopupOpens() throws Exception{
 		Utility.waitForVisibilityOfElementLocated(xpathfile, "login_label");
-		
+		Assert.assertTrue(Utility.isElementDisplayed(driver, xpathfile, "login_label"));
 	}
    
 

@@ -26,7 +26,7 @@ public class Utility extends Base {
 	}
 
 	public static void waitForVisibilityOfElementLocated(String xpathfile, Object key) throws Exception {
-		WebDriverWait w = new WebDriverWait(driver, 30);
+		WebDriverWait w = new WebDriverWait(driver, 50);
 		w.until(ExpectedConditions.visibilityOfElementLocated(By.xpath((String) Utility.getProperty(xpathfile, key))));
 	}
 
@@ -76,4 +76,16 @@ public class Utility extends Base {
 		a.moveToElement(ele).click().perform();
 	}
 
+	public static boolean isElementDisplayed(WebDriver dr, String xpathFile, String xpathKey) throws Exception{
+		WebElement ele = driver.findElement(By.xpath((String) Utility.getProperty(xpathFile, xpathKey)));
+		return ele.isDisplayed();
+	}
+	
+	public static boolean isElementSelected(WebDriver dr, String xpathFile, String xpathKey) throws Exception{
+		WebElement ele = driver.findElement(By.xpath((String) Utility.getProperty(xpathFile, xpathKey)));
+		return ele.isSelected();
+	}
+	
+	
 }
+
