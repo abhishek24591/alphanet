@@ -41,7 +41,8 @@ public class Utility extends Base {
 		Actions act = new Actions(dr);
 		Action series = (Action) act.moveToElement(dr.findElement(By.xpath((String) getProperty(xpathFile, xpathKey))))
 				.sendKeys((String) getProperty(dataFile,dataToEnter)).build();
-		series.perform();
+		series.perform(); 
+//		dr.findElement(By.xpath((String)Utility.getProperty(xpathFile, xpathKey))).sendKeys((String) Utility.getProperty(dataFile, dataToEnter));
 	}
 
 	public static String getTextUsingXpath(WebDriver dr, String xpathFile, String xpathKey) throws Exception {

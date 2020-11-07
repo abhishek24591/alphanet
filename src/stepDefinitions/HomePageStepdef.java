@@ -11,17 +11,15 @@ public class HomePageStepdef {
 		new HomePage().basePageNavigation();
 	}
 	
-	@And("^I search \"([^\"]*)\" in search box$")
-	public void i_search_in_search_box(String nm) throws Throwable {
-		new HomePage().searchInSearchInputbox(nm);
+	@And("^I search in search box$")
+	public void i_search_in_search_box() throws Exception {
+		new HomePage().searchInSearchInputbox();
 	}
 	
 	@And("I verify that I am on flipkart home page$")
-	public void iVerifyThatIAmOnFlipkartHomePage(){
+	public void iVerifyThatIAmOnFlipkartHomePage() throws Exception{
 		new HomePage().verifyIAmOnFlipKartHomePage();
 	}
-	
-	
 	
 	@And("^I select add to compare checkbox$")
 	public void iSelectAddToCompareCheckbox() throws Exception{

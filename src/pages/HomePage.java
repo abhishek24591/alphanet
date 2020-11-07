@@ -19,13 +19,15 @@ public class HomePage extends Base {
 	
 	
 	@SuppressWarnings("deprecation")
-	public void verifyIAmOnFlipKartHomePage(){
+	public void verifyIAmOnFlipKartHomePage() throws Exception{
+		Utility.waitForVisibilityOfElementLocated(xpathfile, "close_btn");
+		Utility.clickUsingXpath(driver, xpathfile, "close_btn");
 		Assert.assertEquals("Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!", driver.getTitle());
 	}
 	
-	public void searchInSearchInputbox(String value) throws Exception{
+	public void searchInSearchInputbox() throws Exception{
 		Utility.waitForVisibilityOfElementLocated(xpathfile, "searchInput_box");
-		Utility.typeUsingXpath(driver, xpathfile, "searchInput_box", config_file, "mobiles");
+		Utility.typeUsingXpath(driver, xpathfile, "searchInput_box", config_file, "searchValue");
 		driver.findElement(By.xpath((String) Utility.getProperty(xpathfile, "searchInput_box"))).sendKeys(Keys.ENTER);
 	}
 	
