@@ -2,6 +2,9 @@ package pages;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+
 import junit.framework.Assert;
 import utils.Utility;
 
@@ -31,6 +34,12 @@ public class HomePage extends Base {
 	@SuppressWarnings("deprecation")
 	public void verifyIAmOnFlipKartHomePage(){
 		Assert.assertEquals("Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!", driver.getTitle());
+	}
+	
+	public void searchInSearchInputbox(String value) throws Exception{
+		Utility.waitForVisibilityOfElementLocated(xpathfile, "searchInput_box");
+		Utility.typeUsingXpath(driver, xpathfile, "searchInput_box", config_file, "mobiles");
+		driver.findElement(By.xpath((String) Utility.getProperty(xpathfile, "searchInput_box"))).sendKeys(Keys.ENTER);
 	}
 	
    

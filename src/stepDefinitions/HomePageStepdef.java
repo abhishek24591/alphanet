@@ -6,9 +6,14 @@ import pages.HomePage;
 
 public class HomePageStepdef {
 
-	@Given("I am on flipkart home page")
+	@Given("I launch flipkart")
 	public void iAmOnFlipKartHomePage() throws Exception{
 		new HomePage().basePageNavigation();
+	}
+	
+	@And("^I search \"([^\"]*)\" in search box$")
+	public void i_search_in_search_box(String nm) throws Throwable {
+		new HomePage().searchInSearchInputbox(nm);
 	}
 	
 	@And("I verify that I am on flipkart home page")
